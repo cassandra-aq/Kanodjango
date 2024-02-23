@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-3xl font-semibold mb-4">Kanomien Delete</h1>
+  <a href="{% url 'kanomien_list' %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to list</a><br /><br />
+  <form method="post">
+    {% csrf_token %}Are you sure you want to delete "{{ object }}" ?
+    <button type="submit" class="inline-block bg-red-500 hover:bg-red-700 text-white font-bold mx-4 py-2 px-4 rounded">confirm delete</button>
+  </form>
+{% endblock %}

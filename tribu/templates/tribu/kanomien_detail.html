@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-3xl font-semibold mb-4">Kanomien Detail</h1>
+  <a href="{% url 'kanomien_list' %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to list</a>
+  <a href="{% url 'kanomien_edit' pk=object.pk %}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit</a><br /><br />
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <p class="text-lg font-semibold text-blue-700 mb-2">First Name:</p>
+      <p class="text-xl">{{ object.first_name }}</p>
+    </div>
+    <div>
+      <p class="text-lg font-semibold text-green-700 mb-2">Last Name:</p>
+      <p class="text-xl">{{ object.last_name }}</p>
+    </div>
+    <div>
+      <p class="text-lg font-semibold text-purple-700 mb-2">City:</p>
+      <p class="text-xl">{{ object.city }}</p>
+    </div>
+    <div>
+      <p class="text-lg font-semibold text-yellow-700 mb-2">Date Joined:</p>
+      <p class="text-xl">{{ object.date_joined }}</p>
+    </div>
+    <div>
+      <p class="text-lg font-semibold text-red-700 mb-2">Favorite Language:</p>
+      <p class="text-xl">{{ object.get_favourite_language_display }}</p>
+    </div>
+    <div>
+      <p class="text-lg font-semibold text-indigo-700 mb-2">Sherpa:</p>
+      <p class="text-xl">{{ object.sherpa|default:'-' }}</p>
+    </div>
+  </div>
+{% endblock %}

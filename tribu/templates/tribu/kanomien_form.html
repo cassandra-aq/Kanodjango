@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-3xl font-semibold mb-4 text-blue-700">
+    {% if object %}
+      Edit {{ object }}
+    {% else %}
+      New Kanomien
+    {% endif %}
+  </h1>
+  <a href="{% url 'kanomien_list' %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to list</a><br /><br />
+  <form method="POST" enctype="multipart/form-data" class="mt-8">
+    {% csrf_token %}
+    <table class="w-full table-auto">
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Enregistrer</button>
+  </form>
+{% endblock %}
